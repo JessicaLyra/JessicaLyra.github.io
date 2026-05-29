@@ -1120,3 +1120,49 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+
+/* Language Switcher */
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background: rgba(4, 11, 20, 0.9);
+  padding: 8px 15px;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+}
+
+.language-switcher a {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.language-switcher a:hover {
+  color: #ff014f;
+}
+
+.language-switcher a.active {
+  color: #ff014f;
+}
+
+.language-switcher span {
+  color: #777;
+  margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+  .language-switcher {
+    top: 15px;
+    right: 65px; /* evita sobrepor o menu hamburguer */
+    padding: 6px 12px;
+  }
+
+  .language-switcher a {
+    font-size: 13px;
+  }
+}
