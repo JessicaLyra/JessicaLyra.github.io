@@ -1,44 +1,45 @@
-// Typing effect simples
-const text = "Web Designer & Desenvolvedora Web";
-let i = 0;
 
-function typing() {
-  if (i < text.length) {
-    document.querySelector(".typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 60);
-  }
-}
-typing();
+const modal = document.getElementById("videoModal");
+const iframe = document.getElementById("videoFrame");
+const closeBtn = document.querySelector(".close-modal");
 
+// abrir modal
+document.querySelectorAll(".open-modal").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const videoUrl = btn.getAttribute("data-video");
 
-// Comentários (localStorage)
-const form = document.getElementById("commentForm");
-const list = document.getElementById("commentsList");
-
-let comments = JSON.parse(localStorage.getItem("comments")) || [];
-
-function render() {
-  list.innerHTML = "";
-  comments.forEach(c => {
-    const div = document.createElement("div");
-    div.classList.add("card");
-    div.innerHTML = `<strong>${c.name}</strong><p>${c.text}</p>`;
-    list.appendChild(div);
-  });
-}
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const comment = document.getElementById("comment").value;
-
-  comments.push({ name, text: comment });
-  localStorage.setItem("comments", JSON.stringify(comments));
-
-  form.reset();
-  render();
+        iframe.src = videoUrl;
+        modal.style.display = "flex";
+    });
 });
 
-render();
+// fechar modal
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    iframe.src = "";
+});
+
+// fechar clicando fora
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+        iframe.src = "";
+    }
+});
+
+const elements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+elements.forEach(el => observer.observe(el));
+
+
+
