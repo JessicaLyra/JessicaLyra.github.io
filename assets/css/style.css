@@ -205,6 +205,39 @@ footer .social-links a:hover {
 BUTTONS
 ====================== */
 
+.language-switcher{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-right:12px;
+}
+
+.lang-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:999px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    text-decoration:none;
+    transition:all .3s ease;
+}
+
+.lang-link:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+    box-shadow:0 0 12px rgba(255,170,80,.2);
+}
+
+.lang-link.active{
+    background:linear-gradient(90deg, #ff6a00, #ff9d57);
+    border-color:transparent;
+    box-shadow:0 0 20px rgba(255,120,50,.25);
+}
+
 .btn-header,
 .btn-primary{
 
@@ -234,12 +267,23 @@ BUTTONS
     transition:.3s;
 }
 
+.btn-whatsapp{
+    background:linear-gradient(90deg, #2bb673 0%, #1f9f63 100%);
+    box-shadow:0 0 24px rgba(43, 182, 115, .25);
+}
+
 .btn-header:hover,
 .btn-primary:hover{
 
     transform:translateY(-3px);
 
     box-shadow:0 0 30px rgba(255,1,79,.4);
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp.btn-header:hover,
+.btn-whatsapp.btn-primary:hover{
+    box-shadow:0 0 26px rgba(43, 182, 115, .35);
 }
 
 .btn-secondary{
