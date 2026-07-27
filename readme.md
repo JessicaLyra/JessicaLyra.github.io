@@ -10,7 +10,7 @@ Este repositório contém o código-fonte do meu portfólio profissional.
 
 ## Preview
 
-![Página Inicial](./assets/img/readme/home.png)
+![Página Inicial](/assets/img/readme/home.png)
 
 ---
 
