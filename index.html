@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
     <!-- Favicons -->
     <link href="assets/img/icon.ico" rel="icon">
     <link href="assets/img/icon.ico" rel="apple-touch-icon">
@@ -38,9 +40,14 @@
 
         </nav>
 
-        <div class="language-switcher" aria-label="Seletor de idioma">
-            <a href="index.html" class="lang-link active" aria-current="page">🇧🇷 PT</a>
-            <a href="en/index.html" class="lang-link">🇺🇸 EN</a>
+        <div class="language-switcher" aria-label="Language selector">
+            <a href="index.html" class="lang-link active" aria-current="page" aria-label="Português">
+                <span class="fi fi-br"></span>
+            </a>
+
+            <a href="en/index.html" class="lang-link" aria-label="English">
+                <span class="fi fi-us"></span>
+            </a>
         </div>
 
         <a href="https://wa.me/5511948574216?text=Olá,%20Jessica!%20Encontrei%20seu%20portfólio%20e%20gostaria%20de%20entrar%20em%20contato." target="_blank" class="btn-header btn-whatsapp">
@@ -68,9 +75,7 @@
             </h1>
 
             <p>
-
-                Criação de sites, landing pages e aplicações web modernas utilizando WordPress, PHP, React, Next.js, Node.js e PostgreSQL..
-
+                Crio APIs, aplicações web e sites responsivos, transformando ideias em soluções digitais seguras, escaláveis e de alta performance.
             </p>
 
             <div class="hero-buttons">
@@ -136,12 +141,14 @@
                 Transformando ideias em experiências digitais.
             </h2>
             <p>
-                Sou desenvolvedora web com foco em WordPress e experiência na criação de sites institucionais, landing pages, lojas virtuais e sistemas personalizados.
+                Sou desenvolvedora web com experiência na criação de soluções digitais, atuando no desenvolvimento de sites institucionais, landing pages, lojas virtuais e aplicações web personalizadas.            
             </p>
             <p>
-                Atuo com desenvolvimento e customização de temas e plugins, ACF, integrações via APIs REST, otimização de performance, manutenção, migração de sites, hospedagem, servidores e DNS. Também desenvolvo aplicações utilizando React, Next.js, Node.js e PostgreSQL, expandindo minha atuação para soluções web completas.
+Possuo experiência sólida com WordPress, incluindo desenvolvimento e customização de temas e plugins, criação de campos personalizados com ACF, integrações via APIs REST, otimização de performance, manutenção, migração de sites, configurações de hospedagem, servidores e DNS.
             </p>
-
+            <p>
+                Também desenvolvo aplicações web utilizando tecnologias como PHP, JavaScript, React, Next.js, Node.js, TypeScript, Tailwind CSS, Java (Spring Boot), PostgreSQL, MySQL e Git/GitHub, criando soluções modernas, responsivas e orientadas a boas práticas de desenvolvimento.
+            </p>
         </div>
 
     </div>
@@ -155,36 +162,53 @@
         <div class="section-header reveal">
 
             <span class="section-tag">
-                <i class="fa-solid fa-code"></i> Tecnologias
+                <i class="fa-solid fa-laptop-code"></i> Tecnologias
             </span>
 
             <h2>
-                Ferramentas que utilizo
+                Minha Stack
             </h2>
 
         </div>
 
         <div class="skills-grid">
 
-            <div class="skill-card reveal"><i class="fab fa-react"></i> React</div>
-            <div class="skill-card reveal"><i class="fab fa-js"></i> Next.js</div>
-            <div class="skill-card reveal"><i class="fab fa-css3"></i> Tailwind</div>
-            <div class="skill-card reveal"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+            <!-- Front-end -->
+            <div class="skill-card reveal"><i class="devicon-javascript-plain "></i> JavaScript</div>
+            <div class="skill-card reveal"><i class="devicon-react-original "></i> React</div>
+            <div class="skill-card reveal"><i class="devicon-nextjs-plain  "></i> Next.js</div>
+            <div class="skill-card reveal"><i class="devicon-tailwindcss-original "></i> Tailwind CSS</div>
+            
+            <div class="skill-card reveal"><i class="devicon-bootstrap-plain "></i> Bootstrap</div>
+            <div class="skill-card reveal"><i class="devicon-materialui-plain "></i> Material UI</div>
 
-            <div class="skill-card reveal"><i class="fab fa-node-js"></i> Node.js</div>
-            <div class="skill-card reveal"><i class="fab fa-php"></i> PHP</div>
-            <div class="skill-card reveal"><i class="fas fa-database"></i> PostgreSQL</div>
-            <div class="skill-card reveal"><i class="fas fa-database"></i> MySql</div>
+            <!-- Back-end -->
+            <div class="skill-card reveal"><i class="devicon-java-plain "></i> Java</div>
+            <div class="skill-card reveal"><i class="devicon-spring-original "></i> Spring Boot</div>
+            <div class="skill-card reveal"><i class="devicon-nodejs-plain "></i> Node.js</div>
+            <div class="skill-card reveal"><i class="devicon-php-plain "></i> PHP</div>
 
-            <div class="skill-card reveal"><i class="fas fa-cube"></i> Prisma</div>
+            <!-- Banco de Dados -->
+            <div class="skill-card reveal"><i class="devicon-postgresql-plain "></i> PostgreSQL</div>
+            <div class="skill-card reveal"><i class="devicon-mysql-plain "></i> MySQL</div>
+            <div class="skill-card reveal"><i class="devicon-sqlite-plain "></i> SQLite</div>
+            <div class="skill-card reveal"><i class="devicon-prisma-plain "></i> Prisma ORM</div>
 
-            <div class="skill-card reveal"><i class="fab fa-github"></i> Github</div>
-            <div class="skill-card reveal"><i class="fas fa-cloud"></i> Vercel</div>
+            <!-- Ferramentas -->
+            <div class="skill-card reveal"><i class="devicon-git-plain "></i> Git</div>
+            <div class="skill-card reveal"><i class="devicon-github-original "></i> GitHub</div>
+            <div class="skill-card reveal"><i class="devicon-github-original "></i> GitHub Copilot</div>
+            <div class="skill-card reveal"><i class="devicon-postman-plain "></i> Postman</div>
+            <div class="skill-card reveal"><i class="devicon-vercel-plain "></i> Vercel</div>
 
-            <div class="skill-card reveal"><i class="fab fa-wordpress"></i> WordPress</div>
+            <!-- CMS -->
+            <div class="skill-card reveal"><i class="devicon-wordpress-plain "></i> WordPress</div>
             <div class="skill-card reveal"><i class="fas fa-puzzle-piece"></i> Elementor</div>
+            <div class="skill-card reveal"><i class="fas fa-code"></i> ACF</div>
+            <div class="skill-card reveal"><i class="devicon-woocommerce-plain "></i> WooCommerce</div>
             <div class="skill-card reveal"><i class="fas fa-globe"></i> Wix</div>
 
+            <!-- Marketing -->
             <div class="skill-card reveal"><i class="fas fa-chart-line"></i> RD Station</div>
 
         </div>
@@ -208,10 +232,13 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
                 <h3>Desenvolvedora Web</h3>
-                <span>99Freelas</span>
+                <span>99 Freelas</span>
                 <small>dez de 2020 - atual · 5 anos</small>
                 <p>
-                    Desenvolvimento de sites, landing pages, Web Design, suporte técnico, cPanel e atendimento ao cliente.
+                    Atuação como Desenvolvedora Web Freelancer, desenvolvendo sites institucionais, landing pages e realizando manutenção e melhorias em projetos WordPress. Experiência com customização de temas e plugins, otimização de performance, configurações de hospedagem, domínios, cPanel, migração de sites e suporte técnico.
+                </p>
+                <p>
+                    Também desenvolvo projetos com tecnologias modernas como React, Next.js, Node.js e TypeScript, criando aplicações web responsivas e expandindo minha atuação para soluções full stack.
                 </p>
             </div>
         </div>

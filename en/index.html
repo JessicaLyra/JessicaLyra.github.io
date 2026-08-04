@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
     <!-- Favicons -->
     <link href="../assets/img/icon.ico" rel="icon">
     <link href="../assets/img/icon.ico" rel="apple-touch-icon">
@@ -32,9 +33,13 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <div class="language-switcher" aria-label="Language switcher">
-            <a href="../index.html" class="lang-link">🇧🇷 PT</a>
-            <a href="index.html" class="lang-link active" aria-current="page">🇺🇸 EN</a>
+        <div class="language-switcher" aria-label="Language selector">
+            <a href="../index.html" class="lang-link" aria-label="Português">
+                <span class="fi fi-br"></span>
+            </a>
+            <a href="index.html" class="lang-link active" aria-current="page" aria-label="English">
+                <span class="fi fi-us"></span>
+            </a>
         </div>
 
         <a href="https://wa.me/5511948574216?text=Hello,%20Jessica!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch." target="_blank" class="btn-header btn-whatsapp">
@@ -50,14 +55,13 @@
                 <i class="fas fa-briefcase"></i> Available for opportunities and projects
             </span>
 
-            <h1>
-                Full Stack
-                <span>Developer</span>
+            <h1>Jessica Lyra
+                <span>Full Stack</span>
+                Developer
             </h1>
 
             <p>
-                Creating modern websites, landing pages and web applications using WordPress, PHP, React, Next.js, Node.js and PostgreSQL.
-            </p>
+                I create APIs, web applications, and responsive websites, transforming ideas into secure, scalable, and high-performance digital solutions.            </p>
 
             <div class="hero-buttons">
                 <a href="https://wa.me/5511948574216?text=Hello,%20Jessica!%20I%20found%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch." target="_blank" class="btn-primary btn-whatsapp">
@@ -107,10 +111,15 @@
                 Turning ideas into digital experiences.
             </h2>
             <p>
-                I’m a web developer focused on WordPress and experienced in building institutional websites, landing pages, online stores and custom systems.
+                I am a web developer with experience creating digital solutions, working on the development of institutional websites, landing pages, e-commerce stores, and customized web applications.
             </p>
+
             <p>
-                I work with theme and plugin development, ACF, REST API integrations, performance optimization, maintenance, site migration, hosting, servers and DNS. I also develop applications with React, Next.js, Node.js and PostgreSQL, expanding my work into complete web solutions.
+                I have solid experience with WordPress, including theme and plugin development and customization, custom fields creation with ACF, REST API integrations, performance optimization, website maintenance, migrations, hosting configuration, servers, and DNS management.
+            </p>
+
+            <p>
+                I also develop web applications using technologies such as PHP, JavaScript, React, Next.js, Node.js, TypeScript, Tailwind CSS, Java (Spring Boot), PostgreSQL, MySQL, and Git/GitHub, creating modern, responsive solutions following development best practices.
             </p>
         </div>
     </div>
@@ -128,23 +137,50 @@
             </h2>
         </div>
 
+
+
         <div class="skills-grid">
-            <div class="skill-card reveal"><i class="fab fa-react"></i> React</div>
-            <div class="skill-card reveal"><i class="fab fa-js"></i> Next.js</div>
-            <div class="skill-card reveal"><i class="fab fa-css3"></i> Tailwind</div>
-            <div class="skill-card reveal"><i class="fab fa-bootstrap"></i> Bootstrap</div>
-            <div class="skill-card reveal"><i class="fab fa-node-js"></i> Node.js</div>
-            <div class="skill-card reveal"><i class="fab fa-php"></i> PHP</div>
-            <div class="skill-card reveal"><i class="fas fa-database"></i> PostgreSQL</div>
-            <div class="skill-card reveal"><i class="fas fa-database"></i> MySQL</div>
-            <div class="skill-card reveal"><i class="fas fa-cube"></i> Prisma</div>
-            <div class="skill-card reveal"><i class="fab fa-github"></i> GitHub</div>
-            <div class="skill-card reveal"><i class="fas fa-cloud"></i> Vercel</div>
-            <div class="skill-card reveal"><i class="fab fa-wordpress"></i> WordPress</div>
+
+            <!-- Front-end -->
+            <div class="skill-card reveal"><i class="devicon-javascript-plain "></i> JavaScript</div>
+            <div class="skill-card reveal"><i class="devicon-react-original "></i> React</div>
+            <div class="skill-card reveal"><i class="devicon-nextjs-plain  "></i> Next.js</div>
+            <div class="skill-card reveal"><i class="devicon-tailwindcss-original "></i> Tailwind CSS</div>
+            
+            <div class="skill-card reveal"><i class="devicon-bootstrap-plain "></i> Bootstrap</div>
+            <div class="skill-card reveal"><i class="devicon-materialui-plain "></i> Material UI</div>
+
+            <!-- Back-end -->
+            <div class="skill-card reveal"><i class="devicon-java-plain "></i> Java</div>
+            <div class="skill-card reveal"><i class="devicon-spring-original "></i> Spring Boot</div>
+            <div class="skill-card reveal"><i class="devicon-nodejs-plain "></i> Node.js</div>
+            <div class="skill-card reveal"><i class="devicon-php-plain "></i> PHP</div>
+
+            <!-- Banco de Dados -->
+            <div class="skill-card reveal"><i class="devicon-postgresql-plain "></i> PostgreSQL</div>
+            <div class="skill-card reveal"><i class="devicon-mysql-plain "></i> MySQL</div>
+            <div class="skill-card reveal"><i class="devicon-sqlite-plain "></i> SQLite</div>
+            <div class="skill-card reveal"><i class="devicon-prisma-plain "></i> Prisma ORM</div>
+
+            <!-- Ferramentas -->
+            <div class="skill-card reveal"><i class="devicon-git-plain "></i> Git</div>
+            <div class="skill-card reveal"><i class="devicon-github-original "></i> GitHub</div>
+            <div class="skill-card reveal"><i class="devicon-github-original "></i> GitHub Copilot</div>
+            <div class="skill-card reveal"><i class="devicon-postman-plain "></i> Postman</div>
+            <div class="skill-card reveal"><i class="devicon-vercel-plain "></i> Vercel</div>
+
+            <!-- CMS -->
+            <div class="skill-card reveal"><i class="devicon-wordpress-plain "></i> WordPress</div>
             <div class="skill-card reveal"><i class="fas fa-puzzle-piece"></i> Elementor</div>
+            <div class="skill-card reveal"><i class="fas fa-code"></i> ACF</div>
+            <div class="skill-card reveal"><i class="devicon-woocommerce-plain "></i> WooCommerce</div>
             <div class="skill-card reveal"><i class="fas fa-globe"></i> Wix</div>
+
+            <!-- Marketing -->
             <div class="skill-card reveal"><i class="fas fa-chart-line"></i> RD Station</div>
+
         </div>
+
     </div>
 </section>
 
@@ -162,9 +198,14 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
                 <h3>Web Developer</h3>
-                <span>99Freelas</span>
-                <small>December 2020 - present · 5 years</small>
-                <p>Development of websites, landing pages, web design, technical support, cPanel and client service.</p>
+                <span>99 Freelas</span>
+                <small>December 2020 - present </small>
+                <p>
+                    Working as a Freelance Web Developer, creating institutional websites, landing pages, and performing maintenance and improvements on WordPress projects. Experienced in theme and plugin customization, performance optimization, hosting configurations, domain management, cPanel, website migrations, and technical support.
+                </p>
+                <p>
+                    I also develop projects using modern technologies such as React, Next.js, Node.js, and TypeScript, creating responsive web applications and expanding my expertise into full-stack solutions.
+                </p>            
             </div>
         </div>
 
@@ -270,6 +311,47 @@
 
         <div class="projects-list">
             <div class="project-card reveal">
+                        <a href="https://pt.linkedin.com/posts/jessica-lyra-dev_nextjs-reactjs-typescript-activity-7486215926577692672-8raQ?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy" target="_blank">
+
+                <img src="../assets/img/Sistema React Financeiro.jpg" alt="Financial system project">
+                <div class="project-content">
+                    <h3>Gerenciando Contas</h3>
+                    <p>Financial control system developed in React with functionalities for account registration, categories, transactions and reports.</p>
+                </div>
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>PostgreSQL</span>
+                    <span>Prisma</span>
+                    <span>Performance optimization</span>
+                </div>
+                </a>
+            </div>
+
+            <div class="project-card reveal">
+                <a href="https://www.linkedin.com/posts/jessica-lyra-dev_wordpress-fullstack-lovable-ugcPost-7482561012999655424-9QMj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM" target="_blank">
+                <img src="../assets/img/Landing Page Energia Solar.jpg" alt="Solar energy landing page">
+                <div class="project-content">
+                    <h3>Vantil Luz</h3>
+                    <p>Conversion of a landing page created in Lovable into a customized WordPress theme, with responsive layout, dynamic menu, editable fields via ACF and an optimized structure for maintenance and scalability.</p>
+                </div>
+                <div class="tags">
+                    <span>WordPress</span>
+                    <span>PHP</span>
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>ACF</span>
+                    <span>Custom theme</span>
+                    <span>Responsive</span>
+                </div>
+                </a>
+            </div>
+            <div class="project-card reveal">
+                <a href="https://www.limpezadesofaemcuritiba.com/" target="_blank">
                 <img src="../assets/img/sofa.jpg" alt="Sofa cleaning project">
                 <div class="project-content">
                     <h3>Sofa Cleaning in Curitiba</h3>
@@ -283,9 +365,11 @@
                     <span>Redesign according to the sector and visual identity</span>
                     <span>Responsive</span>
                 </div>
+                </a>
             </div>
 
             <div class="project-card reveal">
+                <a href="https://aceoficinabikeshop.com.br/landing-page-oficina/" target="_blank">
                 <img src="../assets/img/landing page oficina de bicicleta.jpg" alt="Bike shop landing page">
                 <div class="project-content">
                     <h3>Ace Oficina Bikeshop</h3>
@@ -302,9 +386,11 @@
                     <span>Google Reviews</span>
                     <span>Hosting</span>
                 </div>
+                </a>
             </div>
 
             <div class="project-card reveal">
+                <a class="open-modal " data-video="https://www.youtube.com/embed/Gbw46rMEsEo" >
                 <img src="../assets/img/landing page vidraçaria.jpg" alt="Glass company landing page">
                 <div class="project-content">
                     <h3>Oficina do Vidro</h3>
@@ -320,43 +406,44 @@
                     <span>Hosting</span>
                     <span>Performance optimization</span>
                 </div>
+                </a>
             </div>
 
             <div class="project-card reveal">
-                <img src="../assets/img/Sistema React Financeiro.jpg" alt="Financial system project">
-                <div class="project-content">
-                    <h3>Gerenciando Contas</h3>
-                    <p>Financial control system developed in React with functionalities for account registration, categories, transactions and reports.</p>
-                </div>
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>PostgreSQL</span>
-                    <span>Prisma</span>
-                    <span>Performance optimization</span>
-                </div>
+                <a href="https://aceoficinabikeshop.com.br/landing-page-loja/" target="_blank">
+                    <img src="../assets/img/landing page loja de bicicleta.jpg">
+
+                    <div class="project-content">
+
+                        <h3>Bike Shop</h3>
+
+                        <p>
+                            The client needed a landing page to showcase the store's main products in a more humanized way, using real photos, a virtual showroom concept, and a WhatsApp contact button, focusing on conversion and lead generation.
+                        </p>
+
+                    </div>
+
+                    <div class="tags">
+                        <span>WordPress</span>
+                        <span>Elementor</span>
+                        <span>Frontend</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Google Tag Manager</span>
+                        <span>Domain Configuration</span>
+                        <span>Complete WordPress Installation and Setup</span>
+                        <span>Redesign Based on Brand Identity and Business Segment</span>
+                        <span>Responsive Design</span>
+                    </div>
+
+                    <!--
+                    <button class="open-modal btn-primary" data-video="https://www.youtube.com/embed/wCwiFtvkAz8?si=7bIuPwsu0b5VynvQ">
+                        <i class="fas fa-play"></i> View project
+                    </button> -->
+                </a>
             </div>
 
-            <div class="project-card reveal">
-                <img src="../assets/img/Landing Page Energia Solar.jpg" alt="Solar energy landing page">
-                <div class="project-content">
-                    <h3>Vantil Luz</h3>
-                    <p>Conversion of a landing page created in Lovable into a customized WordPress theme, with responsive layout, dynamic menu, editable fields via ACF and an optimized structure for maintenance and scalability.</p>
-                </div>
-                <div class="tags">
-                    <span>WordPress</span>
-                    <span>PHP</span>
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-                    <span>ACF</span>
-                    <span>Custom theme</span>
-                    <span>Responsive</span>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
