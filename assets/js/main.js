@@ -8,20 +8,24 @@ document.querySelectorAll(".open-modal").forEach(btn => {
     btn.addEventListener("click", () => {
         const videoUrl = btn.getAttribute("data-video");
 
-        iframe.src = videoUrl;
-        modal.style.display = "flex";
+        if (iframe && modal) {
+            iframe.src = videoUrl;
+            modal.style.display = "flex";
+        }
     });
 });
 
 // fechar modal
-closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    iframe.src = "";
-});
+if (closeBtn && modal && iframe) {
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        iframe.src = "";
+    });
+}
 
 // fechar clicando fora
 window.addEventListener("click", (e) => {
-    if (e.target === modal) {
+    if (modal && iframe && e.target === modal) {
         modal.style.display = "none";
         iframe.src = "";
     }
@@ -40,6 +44,5 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 elements.forEach(el => observer.observe(el));
-
 
 
