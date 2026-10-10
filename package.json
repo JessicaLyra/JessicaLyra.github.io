@@ -1,0 +1,26 @@
+{
+  "name": "jessica-lyra-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write src index.html planos.html en/index.html package.json vite.config.js eslint.config.js readme.md .github/workflows/deploy.yml",
+    "format:check": "prettier --check src index.html planos.html en/index.html package.json vite.config.js eslint.config.js readme.md .github/workflows/deploy.yml"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.3"
+  }
+}
