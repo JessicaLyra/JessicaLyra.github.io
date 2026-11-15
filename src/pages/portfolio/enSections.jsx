@@ -47,7 +47,7 @@ export function HeroSection() {
         </div>
         <div className="hero-image">
           <img
-            src="/assets/img/Jessica Lyra- Desenvolvedora Fullstack.jpg"
+            src="/assets/img/Jessica Lyra- Desenvolvedora Fullstack.webp"
             alt="Jessica Lyra"
           />
         </div>
@@ -61,7 +61,7 @@ export function AboutSection() {
     <section id="about" className="about">
       <div className="container about-grid">
         <div className="about-image reveal">
-          <img src="/assets/img/sobre.jpg" alt="Jessica Lyra" />
+          <img src="/assets/img/5.webp" alt="Jessica Lyra" />
         </div>
         <div className="about-content reveal">
           <span className="section-tag">
