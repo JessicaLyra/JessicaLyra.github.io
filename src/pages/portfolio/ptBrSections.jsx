@@ -493,7 +493,7 @@ export function ProjectsSection() {
         >
           {/* 1 - Gerenciando Contas */}
           <div
-            className={`project-card reveal${activeProject === projectNames[0] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[0] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[0]}
           >
             {activeProject === projectNames[0] ? (
@@ -565,7 +565,7 @@ export function ProjectsSection() {
           </div>
           {/* 2 - Vantil Luz */}
           <div
-            className={`project-card reveal${activeProject === projectNames[1] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[1] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[1]}
           >
             {activeProject === projectNames[1] ? (
@@ -618,7 +618,7 @@ export function ProjectsSection() {
           </div>
           {/* 3 - CargoFlow */}
           <div
-            className={`project-card reveal${activeProject === projectNames[2] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[2] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[2]}
           >
             {activeProject === projectNames[2] ? (
@@ -684,7 +684,7 @@ export function ProjectsSection() {
           </div>
           {/* 4 - Loja de Bicicleta */}
           <div
-            className={`project-card reveal${activeProject === projectNames[3] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[3] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[3]}
           >
             {activeProject === projectNames[3] ? (
@@ -741,7 +741,7 @@ export function ProjectsSection() {
           </div>
           {/* 5 - Limpeza de Sofá */}
           <div
-            className={`project-card reveal${activeProject === projectNames[4] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[4] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[4]}
           >
             {activeProject === projectNames[4] ? (
@@ -787,7 +787,7 @@ export function ProjectsSection() {
           </div>
           {/* 6 - Ace Oficina Bikeshop */}
           <div
-            className={`project-card reveal${activeProject === projectNames[5] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[5] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[5]}
           >
             {activeProject === projectNames[5] ? (
@@ -856,7 +856,7 @@ export function ProjectsSection() {
           </div>
           {/* 7 - Oficina do Vidro */}
           <div
-            className={`project-card reveal${activeProject === projectNames[6] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[6] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[6]}
           >
             {activeProject === projectNames[6] ? (
@@ -907,7 +907,7 @@ export function ProjectsSection() {
           </div>
           {/* 8 - Air Design Engenharia */}
           <div
-            className={`project-card reveal${activeProject === projectNames[7] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[7] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[7]}
           >
             {activeProject === projectNames[7] ? (
@@ -970,7 +970,7 @@ export function ProjectsSection() {
           </div>
           {/* 9 - Personalização de Loja Shopify */}
           <div
-            className={`project-card reveal${activeProject === projectNames[8] ? " project-card-featured" : ""}`}
+            className={`project-card reveal${activeProject === projectNames[8] ? " project-card-featured active" : ""}`}
             hidden={activeProject !== projectNames[8]}
           >
             <ProjectVideoLayout
