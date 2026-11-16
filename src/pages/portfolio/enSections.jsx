@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function HeroSection() {
   return (
     <section className="hero">
@@ -370,7 +372,207 @@ export function ExperienceSection() {
   );
 }
 
+function ProjectVideoLayout({ videoId, title, description, tags }) {
+  return (
+    <div className="project-video-layout">
+      <div className="project-featured-video">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={`${title} project video`}
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <div className="project-featured-content">
+        <div className="project-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className="tags">
+          {tags.map((tag, index) => (
+            <span key={`${tag}-${index}`}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ProjectsSection() {
+  const projects = [
+    {
+      title: "Gerenciando Contas",
+      videoId: "LSOsUgggeog",
+      description:
+        "A React-based financial management system with features for managing accounts, categories, transactions, and reports.",
+      tags: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma",
+        "Next.js 16 (App Router)",
+        "Prisma ORM",
+        "JWT Authentication",
+        "bcrypt Password Hashing",
+        "Tailwind CSS",
+        "React Hook Form",
+        "Recharts",
+        "Sonner",
+        "Git & GitHub",
+        "Continuous Deployment with Vercel",
+        "Performance Optimization",
+      ],
+    },
+    {
+      title: "Vantil Luz",
+      videoId: "AfiqF-JsmjQ",
+      description:
+        "Converted a landing page created in Lovable into a custom WordPress theme, with a responsive layout, dynamic menu, ACF-editable fields, and a structure optimized for maintenance and scalability.",
+      tags: [
+        "WordPress",
+        "PHP",
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "ACF",
+        "Custom Theme",
+        "Responsive Design",
+      ],
+    },
+    {
+      title: "CargoFlow",
+      videoId: "AunEfD5-TTY",
+      description:
+        "Front-end application for customs operations management, featuring an operational dashboard, DTA, DI and DUIMP document lookup, and document registration workflows. Developed with a focus on UI/UX, responsive design, validation, visual feedback, and API simulation.",
+      tags: [
+        "Next.js 16",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "React Hook Form",
+        "Zod",
+        "Mock Service Worker (MSW)",
+        "REST API",
+        "Lucide React",
+        "UI/UX",
+        "Responsive Design",
+        "Accessibility",
+        "Git & GitHub",
+        "Vercel",
+      ],
+    },
+    {
+      title: "Bike Shop",
+      videoId: "b--Bzsf2nRQ",
+      description:
+        "A landing page designed to showcase the store's products in a welcoming way, using real photos, a storefront-style layout, and WhatsApp buttons to support conversions and lead generation.",
+      tags: [
+        "WordPress",
+        "Elementor",
+        "Frontend",
+        "HTML",
+        "CSS",
+        "Google Tag Manager",
+        "Domain Configuration",
+        "WordPress Setup",
+        "Redesign",
+        "Responsive Design",
+      ],
+    },
+    {
+      title: "Sofa Cleaning in Curitiba",
+      videoId: "wCwiFtvkAz8",
+      description:
+        "Redesigned a website for a company specializing in sofa and upholstery cleaning in Curitiba, reorganizing information, improving service presentation, and creating a responsive experience.",
+      tags: [
+        "Wix",
+        "Frontend",
+        "HTML",
+        "CSS",
+        "Redesign",
+        "Responsive Design",
+      ],
+    },
+    {
+      title: "Ace Oficina Bikeshop",
+      videoId: "GdcveQLovZQ",
+      description:
+        "A landing page for a bicycle workshop showcasing services, plans, social media, and contact channels.",
+      tags: [
+        "WordPress",
+        "Frontend",
+        "HTML",
+        "CSS",
+        "Elementor",
+        "Google Tag Manager",
+        "Responsive Design",
+        "Google Reviews",
+        "Hosting",
+      ],
+    },
+    {
+      title: "Oficina do Vidro",
+      videoId: "Gbw46rMEsEo",
+      description:
+        "A landing page for a glass company, highlighting its services, differentiators, and contact information.",
+      tags: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Enfold",
+        "WordPress",
+        "Responsive Design",
+        "Hosting",
+        "Performance Optimization",
+      ],
+    },
+    {
+      title: "Air Design Engenharia",
+      videoId: "OZvyznDrsvI",
+      description:
+        "Built an institutional website from scratch for Air Design Thermal Engineering, incorporating its new visual identity, responsive pages, reorganized content, and WhatsApp integration. Also handled migration, domain/DNS, hosting setup, SEO, and performance optimization.",
+      tags: [
+        "WordPress",
+        "Elementor",
+        "Astra",
+        "PHP",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Responsive Design",
+        "WhatsApp Integration",
+        "Migration & Hosting",
+        "SEO",
+        "DNS & cPanel",
+      ],
+    },
+    {
+      title: "Shopify Store Customization",
+      videoId: "i26ITCNCxXA",
+      description:
+        "Customized a Shopify online store by exploring the platform's structure and features and using code to adapt the theme to the project's needs. Demonstrates the autonomy to investigate new tools and solve development challenges.",
+      tags: [
+        "Shopify",
+        "E-commerce",
+        "Frontend Development",
+        "Theme Customization",
+        "Code Customization",
+        "Web Development",
+        "Problem Solving",
+        "Learning New Technologies",
+      ],
+    },
+  ];
+  const [activeProject, setActiveProject] = useState(projects[0].title);
+  const activeTabIndex = projects.findIndex(
+    (project) => project.title === activeProject,
+  );
+
   return (
     <section id="projects" className="projects">
       <div className="container">
@@ -380,227 +582,45 @@ export function ProjectsSection() {
           </span>
           <h2>Featured projects</h2>
         </div>
-        <div className="projects-list">
-          <div className="project-card reveal">
-            <a
-              href="https://pt.linkedin.com/posts/jessica-lyra-dev_nextjs-reactjs-typescript-activity-7486215926577692672-8raQ?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/Sistema React Financeiro.jpg"
-                alt="Financial system project"
-              />
-              <div className="project-content">
-                <h3>Gerenciando Contas</h3>
-                <p>
-                  Financial control system developed in React with
-                  functionalities for account registration, categories,
-                  transactions and reports.
-                </p>
-              </div>
-              <div className="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>PostgreSQL</span>
-                <span>Prisma</span>
-                <span>Performance optimization</span>
-              </div>
-            </a>
-          </div>
-          <div className="project-card reveal">
-            <a
-              href="https://www.linkedin.com/posts/jessica-lyra-dev_wordpress-fullstack-lovable-ugcPost-7482561012999655424-9QMj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/Landing Page Energia Solar.jpg"
-                alt="Solar energy landing page"
-              />
-              <div className="project-content">
-                <h3>Vantil Luz</h3>
-                <p>
-                  Conversion of a landing page created in Lovable into a
-                  customized WordPress theme, with responsive layout, dynamic
-                  menu, editable fields via ACF and an optimized structure for
-                  maintenance and scalability.
-                </p>
-              </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>PHP</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>ACF</span>
-                <span>Custom theme</span>
-                <span>Responsive</span>
-              </div>
-            </a>
-          </div>
-          {/* CargoFlow */}
-          <div className="project-card reveal">
-            <a
-              href="https://www.linkedin.com/posts/jessica-lyra-dev_frontend-reactjs-nextjs-activity-7496581817387343872-KDy4?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/Sistema Logístico Front End.jpg"
-                alt="CargoFlow customs operations management system"
-              />
-              <div className="project-content">
-                <h3>CargoFlow</h3>
-                <p>
-                  Front-end application for customs operations management,
-                  featuring an operational dashboard, DTA, DI and DUIMP document
-                  lookup, and document registration workflows. Developed with a
-                  strong focus on UI/UX, responsive design, form validation,
-                  visual feedback, and API simulation.
-                </p>
-              </div>
-              <div className="tags">
-                <span>Next.js 16</span>
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Tailwind CSS</span>
-                <span>React Hook Form</span>
-                <span>Zod</span>
-                <span>Mock Service Worker (MSW)</span>
-                <span>REST API</span>
-                <span>Lucide React</span>
-                <span>UI/UX</span>
-                <span>Responsive Design</span>
-                <span>Accessibility</span>
-                <span>Git &amp; GitHub</span>
-                <span>Vercel</span>
-              </div>
-            </a>
-          </div>
-          <div className="project-card reveal">
-            <a
-              href="https://www.limpezadesofaemcuritiba.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/assets/img/sofa.jpg" alt="Sofa cleaning project" />
-              <div className="project-content">
-                <h3>Sofa Cleaning in Curitiba</h3>
-                <p>
-                  Redesign of a website for a sofa cleaning company, focused on
-                  conversion and lead generation.
-                </p>
-              </div>
-              <div className="tags">
-                <span>Wix</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>
-                  Redesign according to the sector and visual identity
-                </span>
-                <span>Responsive</span>
-              </div>
-            </a>
-          </div>
-          <div className="project-card reveal">
-            <a
-              href="https://aceoficinabikeshop.com.br/landing-page-oficina/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/landing page oficina de bicicleta.jpg"
-                alt="Bike shop landing page"
-              />
-              <div className="project-content">
-                <h3>Ace Oficina Bikeshop</h3>
-                <p>
-                  Project for a bike workshop showing services, plans, social
-                  media and contact information.
-                </p>
-              </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Elementor</span>
-                <span>Google Tag Manager</span>
-                <span>Responsive design</span>
-                <span>Google Reviews</span>
-                <span>Hosting</span>
-              </div>
-            </a>
-          </div>
-          <div className="project-card reveal">
+        <div className="projects-tabs" role="tablist" aria-label="Projects">
+          {projects.map((project, index) => (
             <button
+              key={project.title}
+              id={`project-tab-${index}`}
+              className="projects-tab"
               type="button"
-              className="open-modal "
-              data-video="https://www.youtube.com/embed/Gbw46rMEsEo"
+              role="tab"
+              aria-selected={activeProject === project.title}
+              aria-controls="projects-panel"
+              onClick={() => setActiveProject(project.title)}
             >
-              <img
-                src="/assets/img/landing page vidraçaria.jpg"
-                alt="Glass company landing page"
-              />
-              <div className="project-content">
-                <h3>Oficina do Vidro</h3>
-                <p>
-                  Creation of a landing page for a glass company, highlighting
-                  services, differentiators and contact information.
-                </p>
-              </div>
-              <div className="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Enfold</span>
-                <span>WordPress</span>
-                <span>Responsive design</span>
-                <span>Hosting</span>
-                <span>Performance optimization</span>
-              </div>
+              {project.title}
             </button>
-          </div>
-          <div className="project-card reveal">
-            <a
-              href="https://aceoficinabikeshop.com.br/landing-page-loja/"
-              target="_blank"
-              rel="noopener noreferrer"
+          ))}
+        </div>
+        <div
+          id="projects-panel"
+          className="projects-list projects-list-single"
+          role="tabpanel"
+          aria-labelledby={`project-tab-${activeTabIndex}`}
+          tabIndex={0}
+        >
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className={`project-card reveal${activeProject === project.title ? " project-card-featured" : ""}`}
+              hidden={activeProject !== project.title}
             >
-              <img
-                src="/assets/img/landing page loja de bicicleta.jpg"
-                alt="Bike shop landing page"
-              />
-              <div className="project-content">
-                <h3>Bike Shop</h3>
-                <p>
-                  The client needed a landing page to showcase the store's main
-                  products in a more humanized way, using real photos, a virtual
-                  showroom concept, and a WhatsApp contact button, focusing on
-                  conversion and lead generation.
-                </p>
-              </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>Elementor</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Google Tag Manager</span>
-                <span>Domain Configuration</span>
-                <span>Complete WordPress Installation and Setup</span>
-                <span>
-                  Redesign Based on Brand Identity and Business Segment
-                </span>
-                <span>Responsive Design</span>
-              </div>
-            </a>
-          </div>
+              {activeProject === project.title && (
+                <ProjectVideoLayout
+                  videoId={project.videoId}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

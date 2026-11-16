@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export function HeroSection() {
   return (
     <section className="hero">
@@ -413,7 +415,50 @@ export function ExperienceSection() {
   );
 }
 
+function ProjectVideoLayout({ videoId, title, description, tags }) {
+  return (
+    <div className="project-video-layout">
+      <div className="project-featured-video">
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={`Vídeo do projeto ${title}`}
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <div className="project-featured-content">
+        <div className="project-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+        <div className="tags">
+          {tags.map((tag, index) => (
+            <span key={`${tag}-${index}`}>{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ProjectsSection() {
+  const projectNames = [
+    "Gerenciando Contas",
+    "Vantil Luz",
+    "CargoFlow",
+    "Loja de Bicicleta",
+    "Limpeza de Sofá em Curitiba",
+    "Ace Oficina Bikeshop",
+    "Oficina do Vidro",
+    "Air Design Engenharia",
+    "Personalização de Loja Shopify",
+  ];
+  const projectTabs = projectNames;
+  const [activeProject, setActiveProject] = useState(projectNames[0]);
+  const activeTabIndex = projectTabs.indexOf(activeProject);
+
   return (
     <section id="projetos" className="projects">
       <div className="container">
@@ -423,243 +468,526 @@ export function ProjectsSection() {
           </span>
           <h2>Projetos em destaque</h2>
         </div>
-        <div className="projects-list">
-          {/* 1 - Gerenciando Contas */}
-          <div className="project-card reveal">
-            <a
-              href="https://pt.linkedin.com/posts/jessica-lyra-dev_nextjs-reactjs-typescript-activity-7486215926577692672-8raQ?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="projects-tabs" role="tablist" aria-label="Projetos">
+          {projectTabs.map((project, index) => (
+            <button
+              key={project}
+              id={`project-tab-${index}`}
+              className="projects-tab"
+              type="button"
+              role="tab"
+              aria-selected={activeProject === project}
+              aria-controls="projects-panel"
+              onClick={() => setActiveProject(project)}
             >
-              <img
-                src="/assets/img/Sistema React Financeiro.jpg"
-                alt="Sistema de controle financeiro Gerenciando Contas"
+              {project}
+            </button>
+          ))}
+        </div>
+        <div
+          id="projects-panel"
+          className="projects-list projects-list-single"
+          role="tabpanel"
+          aria-labelledby={`project-tab-${activeTabIndex}`}
+          tabIndex={0}
+        >
+          {/* 1 - Gerenciando Contas */}
+          <div
+            className={`project-card reveal${activeProject === projectNames[0] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[0]}
+          >
+            {activeProject === projectNames[0] ? (
+              <ProjectVideoLayout
+                videoId="LSOsUgggeog"
+                title="Gerenciando Contas"
+                description="Sistema de controle financeiro desenvolvido em React, com funcionalidades de cadastro de contas, categorias, movimentações e relatórios."
+                tags={[
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "React",
+                  "TypeScript",
+                  "PostgreSQL",
+                  "Prisma",
+                  "Otimização de Performance",
+                  "Next.js 16 (App Router)",
+                  "Prisma ORM",
+                  "JWT para autenticação",
+                  "bcrypt para proteção de senhas",
+                  "Tailwind CSS",
+                  "React Hook Form",
+                  "Recharts",
+                  "Sonner",
+                  "Git e GitHub",
+                  "Deploy contínuo com Vercel",
+                ]}
               />
-              <div className="project-content">
-                <h3>Gerenciando Contas</h3>
-                <p>
-                  Sistema de controle financeiro desenvolvido em React, com
-                  funcionalidades de cadastro de contas, categorias,
-                  movimentações e relatórios.
-                </p>
-              </div>
-              <div className="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>PostgreSQL</span>
-                <span>Prisma</span>
-                <span>Otimização de Performance</span>
-                <span>Next.js 16 (App Router)</span>
-                <span>Prisma ORM</span>
-                <span>JWT para autenticação</span>
-                <span>bcrypt para proteção de senhas</span>
-                <span>Tailwind CSS</span>
-                <span>React Hook Form</span>
-                <span>Recharts</span>
-                <span>Sonner</span>
-                <span>Git e GitHub</span>
-                <span>Deploy contínuo com Vercel</span>
-              </div>
-            </a>
+            ) : (
+              <a
+                href="https://pt.linkedin.com/posts/jessica-lyra-dev_nextjs-reactjs-typescript-activity-7486215926577692672-8raQ?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/assets/img/Sistema React Financeiro.jpg"
+                  alt="Sistema de controle financeiro Gerenciando Contas"
+                />
+                <div className="project-content">
+                  <h3>Gerenciando Contas</h3>
+                  <p>
+                    Sistema de controle financeiro desenvolvido em React, com
+                    funcionalidades de cadastro de contas, categorias,
+                    movimentações e relatórios.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>PostgreSQL</span>
+                  <span>Prisma</span>
+                  <span>Otimização de Performance</span>
+                  <span>Next.js 16 (App Router)</span>
+                  <span>Prisma ORM</span>
+                  <span>JWT para autenticação</span>
+                  <span>bcrypt para proteção de senhas</span>
+                  <span>Tailwind CSS</span>
+                  <span>React Hook Form</span>
+                  <span>Recharts</span>
+                  <span>Sonner</span>
+                  <span>Git e GitHub</span>
+                  <span>Deploy contínuo com Vercel</span>
+                </div>
+              </a>
+            )}
           </div>
           {/* 2 - Vantil Luz */}
-          <div className="project-card reveal">
-            <a
-              href="https://www.linkedin.com/posts/jessica-lyra-dev_wordpress-fullstack-lovable-ugcPost-7482561012999655424-9QMj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/Landing Page Energia Solar.jpg"
-                alt="Projeto Vantil Luz"
+          <div
+            className={`project-card reveal${activeProject === projectNames[1] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[1]}
+          >
+            {activeProject === projectNames[1] ? (
+              <ProjectVideoLayout
+                videoId="AfiqF-JsmjQ"
+                title="Vantil Luz"
+                description="Conversão de uma landing page criada no Lovable para um tema WordPress customizado, com layout responsivo, menu dinâmico, campos editáveis via ACF e estrutura otimizada para manutenção e escalabilidade."
+                tags={[
+                  "WordPress",
+                  "PHP",
+                  "HTML5",
+                  "CSS3",
+                  "JavaScript",
+                  "ACF",
+                  "Tema Customizado",
+                  "Responsivo",
+                ]}
               />
-              <div className="project-content">
-                <h3>Vantil Luz</h3>
-                <p>
-                  Conversão de uma landing page criada no Lovable para um tema
-                  WordPress customizado, com layout responsivo, menu dinâmico,
-                  campos editáveis via ACF e estrutura otimizada para manutenção
-                  e escalabilidade.
-                </p>
-              </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>PHP</span>
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>ACF</span>
-                <span>Tema Customizado</span>
-                <span>Responsivo</span>
-              </div>
-            </a>
+            ) : (
+              <a
+                href="https://www.linkedin.com/posts/jessica-lyra-dev_wordpress-fullstack-lovable-ugcPost-7482561012999655424-9QMj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/assets/img/Landing Page Energia Solar.jpg"
+                  alt="Projeto Vantil Luz"
+                />
+                <div className="project-content">
+                  <h3>Vantil Luz</h3>
+                  <p>
+                    Conversão de uma landing page criada no Lovable para um
+                    tema WordPress customizado, com layout responsivo, menu
+                    dinâmico, campos editáveis via ACF e estrutura otimizada
+                    para manutenção e escalabilidade.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>WordPress</span>
+                  <span>PHP</span>
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>ACF</span>
+                  <span>Tema Customizado</span>
+                  <span>Responsivo</span>
+                </div>
+              </a>
+            )}
           </div>
           {/* 3 - CargoFlow */}
-          <div className="project-card reveal">
-            <a
-              href="https://www.linkedin.com/posts/jessica-lyra-dev_frontend-reactjs-nextjs-activity-7496581817387343872-KDy4?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/Sistema Logístico Front End.jpg"
-                alt="CargoFlow - Sistema de operações aduaneiras"
+          <div
+            className={`project-card reveal${activeProject === projectNames[2] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[2]}
+          >
+            {activeProject === projectNames[2] ? (
+              <ProjectVideoLayout
+                videoId="AunEfD5-TTY"
+                title="CargoFlow"
+                description="Aplicação Front-end para gestão de operações aduaneiras, com dashboard operacional, consulta de DTA, DI e DUIMP e fluxo de averbação de documentos. Desenvolvida com foco em UI/UX, responsividade, validações, feedbacks visuais e simulação de APIs."
+                tags={[
+                  "Next.js 16",
+                  "React",
+                  "TypeScript",
+                  "Tailwind CSS",
+                  "React Hook Form",
+                  "Zod",
+                  "Mock Service Worker (MSW)",
+                  "REST API",
+                  "Lucide React",
+                  "UI/UX",
+                  "Responsividade",
+                  "Acessibilidade",
+                  "Git e GitHub",
+                  "Vercel",
+                ]}
               />
-              <div className="project-content">
-                <h3>CargoFlow</h3>
-                <p>
-                  Aplicação Front-end para gestão de operações aduaneiras, com
-                  dashboard operacional, consulta de DTA, DI e DUIMP e fluxo de
-                  averbação de documentos. Desenvolvida com foco em UI/UX,
-                  responsividade, validações, feedbacks visuais e simulação de
-                  APIs.
-                </p>
-              </div>
-              <div className="tags">
-                <span>Next.js 16</span>
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Tailwind CSS</span>
-                <span>React Hook Form</span>
-                <span>Zod</span>
-                <span>Mock Service Worker (MSW)</span>
-                <span>REST API</span>
-                <span>Lucide React</span>
-                <span>UI/UX</span>
-                <span>Responsividade</span>
-                <span>Acessibilidade</span>
-                <span>Git e GitHub</span>
-                <span>Vercel</span>
-              </div>
-            </a>
+            ) : (
+              <a
+                href="https://www.linkedin.com/posts/jessica-lyra-dev_frontend-reactjs-nextjs-activity-7496581817387343872-KDy4?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAACcIw0YBuDusJTfMQBCFCEPkHezPDwK9lvM"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/assets/img/Sistema Logístico Front End.jpg"
+                  alt="CargoFlow - Sistema de operações aduaneiras"
+                />
+                <div className="project-content">
+                  <h3>CargoFlow</h3>
+                  <p>
+                    Aplicação Front-end para gestão de operações aduaneiras,
+                    com dashboard operacional, consulta de DTA, DI e DUIMP e
+                    fluxo de averbação de documentos. Desenvolvida com foco em
+                    UI/UX, responsividade, validações, feedbacks visuais e
+                    simulação de APIs.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>Next.js 16</span>
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Tailwind CSS</span>
+                  <span>React Hook Form</span>
+                  <span>Zod</span>
+                  <span>Mock Service Worker (MSW)</span>
+                  <span>REST API</span>
+                  <span>Lucide React</span>
+                  <span>UI/UX</span>
+                  <span>Responsividade</span>
+                  <span>Acessibilidade</span>
+                  <span>Git e GitHub</span>
+                  <span>Vercel</span>
+                </div>
+              </a>
+            )}
           </div>
           {/* 4 - Loja de Bicicleta */}
-          <div className="project-card reveal">
-            <a
-              href="https://aceoficinabikeshop.com.br/landing-page-loja"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/landing page loja de bicicleta.jpg"
-                alt="Landing page para loja de bicicleta"
+          <div
+            className={`project-card reveal${activeProject === projectNames[3] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[3]}
+          >
+            {activeProject === projectNames[3] ? (
+              <ProjectVideoLayout
+                videoId="b--Bzsf2nRQ"
+                title="Loja de Bicicleta"
+                description="Landing page criada para apresentar os principais produtos da loja de forma humanizada, utilizando fotos reais, estrutura em formato vitrine e botões de WhatsApp com foco em conversão e geração de leads."
+                tags={[
+                  "WordPress",
+                  "Elementor",
+                  "Frontend",
+                  "HTML",
+                  "CSS",
+                  "Google Tag Manager",
+                  "Configuração de domínio",
+                  "Configuração WordPress",
+                  "Redesign",
+                  "Responsivo",
+                ]}
               />
-              <div className="project-content">
-                <h3>Loja de Bicicleta</h3>
-                <p>
-                  Landing page criada para apresentar os principais produtos da
-                  loja de forma humanizada, utilizando fotos reais, estrutura em
-                  formato vitrine e botões de WhatsApp com foco em conversão e
-                  geração de leads.
-                </p>
-              </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>Elementor</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Google Tag Manager</span>
-                <span>Configuração de domínio</span>
-                <span>Configuração WordPress</span>
-                <span>Redesign</span>
-                <span>Responsivo</span>
-              </div>
-            </a>
+            ) : (
+              <a
+                href="https://aceoficinabikeshop.com.br/landing-page-loja"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/assets/img/landing page loja de bicicleta.jpg"
+                  alt="Landing page para loja de bicicleta"
+                />
+                <div className="project-content">
+                  <h3>Loja de Bicicleta</h3>
+                  <p>
+                    Landing page criada para apresentar os principais produtos
+                    da loja de forma humanizada, utilizando fotos reais,
+                    estrutura em formato vitrine e botões de WhatsApp com foco
+                    em conversão e geração de leads.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>WordPress</span>
+                  <span>Elementor</span>
+                  <span>Frontend</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Google Tag Manager</span>
+                  <span>Configuração de domínio</span>
+                  <span>Configuração WordPress</span>
+                  <span>Redesign</span>
+                  <span>Responsivo</span>
+                </div>
+              </a>
+            )}
           </div>
           {/* 5 - Limpeza de Sofá */}
-          <div className="project-card reveal">
-            <a
-              href="https://www.limpezadesofaemcuritiba.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/assets/img/sofa.jpg"
-                alt="Projeto de limpeza de sofá"
+          <div
+            className={`project-card reveal${activeProject === projectNames[4] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[4]}
+          >
+            {activeProject === projectNames[4] ? (
+              <ProjectVideoLayout
+                videoId="wCwiFtvkAz8"
+                title="Limpeza de Sofá em Curitiba"
+                description="Reformulação de site para empresa especializada em limpeza de sofás e estofados em Curitiba, com redesign da interface, reorganização das informações, melhoria da apresentação dos serviços e estrutura responsiva."
+                tags={[
+                  "Wix",
+                  "Frontend",
+                  "HTML",
+                  "CSS",
+                  "Redesign",
+                  "Responsivo",
+                ]}
               />
-              <div className="project-content">
-                <h3>Limpeza de Sofá em Curitiba</h3>
-                <p>
-                  Reformulação de site para empresa especializada em limpeza de
-                  sofás e estofados em Curitiba, com redesign da interface,
-                  reorganização das informações, melhoria da apresentação dos
-                  serviços e estrutura responsiva.
-                </p>
-              </div>
-              <div className="tags">
-                <span>Wix</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Redesign</span>
-                <span>Responsivo</span>
-              </div>
-            </a>
+            ) : (
+              <a
+                href="https://www.limpezadesofaemcuritiba.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/assets/img/sofa.jpg" alt="Projeto de limpeza de sofá" />
+                <div className="project-content">
+                  <h3>Limpeza de Sofá em Curitiba</h3>
+                  <p>
+                    Reformulação de site para empresa especializada em limpeza
+                    de sofás e estofados em Curitiba, com redesign da interface,
+                    reorganização das informações, melhoria da apresentação dos
+                    serviços e estrutura responsiva.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>Wix</span>
+                  <span>Frontend</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Redesign</span>
+                  <span>Responsivo</span>
+                </div>
+              </a>
+            )}
           </div>
           {/* 6 - Ace Oficina Bikeshop */}
-          <div className="project-card reveal">
-            <button
-              type="button"
-              className="open-modal"
-              data-video="https://www.youtube.com/embed/GdcveQLovZQ"
-            >
-              <img
-                src="/assets/img/landing page oficina de bicicleta.jpg"
-                alt="Landing page Ace Oficina Bikeshop"
-              />
-              <div className="project-content">
-                <h3>Ace Oficina Bikeshop</h3>
-                <p>
-                  Landing page para oficina de bicicletas, apresentando
-                  serviços, planos, redes sociais e canais de contato.
-                </p>
+          <div
+            className={`project-card reveal${activeProject === projectNames[5] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[5]}
+          >
+            {activeProject === projectNames[5] ? (
+              <div className="project-video-layout">
+                <div className="project-featured-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/GdcveQLovZQ"
+                    title="Vídeo do projeto Ace Oficina Bikeshop"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="project-featured-content">
+                  <div className="project-content">
+                    <h3>Ace Oficina Bikeshop</h3>
+                    <p>
+                      Landing page para oficina de bicicletas, apresentando
+                      serviços, planos, redes sociais e canais de contato.
+                    </p>
+                  </div>
+                  <div className="tags">
+                    <span>WordPress</span>
+                    <span>Frontend</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Elementor</span>
+                    <span>Google Tag Manager</span>
+                    <span>Design Responsivo</span>
+                    <span>Comentários do Google</span>
+                    <span>Hospedagem</span>
+                  </div>
+                </div>
               </div>
-              <div className="tags">
-                <span>WordPress</span>
-                <span>Frontend</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Elementor</span>
-                <span>Google Tag Manager</span>
-                <span>Design Responsivo</span>
-                <span>Comentários do Google</span>
-                <span>Hospedagem</span>
-              </div>
-            </button>
+            ) : (
+              <button
+                type="button"
+                className="open-modal"
+                data-video="https://www.youtube.com/embed/GdcveQLovZQ"
+              >
+                <img
+                  src="/assets/img/landing page oficina de bicicleta.jpg"
+                  alt="Landing page Ace Oficina Bikeshop"
+                />
+                <div className="project-content">
+                  <h3>Ace Oficina Bikeshop</h3>
+                  <p>
+                    Landing page para oficina de bicicletas, apresentando
+                    serviços, planos, redes sociais e canais de contato.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>WordPress</span>
+                  <span>Frontend</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Elementor</span>
+                  <span>Google Tag Manager</span>
+                  <span>Design Responsivo</span>
+                  <span>Comentários do Google</span>
+                  <span>Hospedagem</span>
+                </div>
+              </button>
+            )}
           </div>
           {/* 7 - Oficina do Vidro */}
-          <div className="project-card reveal">
-            <button
-              type="button"
-              className="open-modal"
-              data-video="https://www.youtube.com/embed/Gbw46rMEsEo"
-            >
-              <img
-                src="/assets/img/landing page vidraçaria.jpg"
-                alt="Landing page Oficina do Vidro"
+          <div
+            className={`project-card reveal${activeProject === projectNames[6] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[6]}
+          >
+            {activeProject === projectNames[6] ? (
+              <ProjectVideoLayout
+                videoId="Gbw46rMEsEo"
+                title="Oficina do Vidro"
+                description="Criação de landing page para empresa de vidraçaria, destacando serviços, diferenciais e contato."
+                tags={[
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "Enfold",
+                  "WordPress",
+                  "Design Responsivo",
+                  "Hospedagem",
+                  "Otimização de Performance",
+                ]}
               />
-              <div className="project-content">
-                <h3>Oficina do Vidro</h3>
-                <p>
-                  Criação de landing page para empresa de vidraçaria, destacando
-                  serviços, diferenciais e contato.
-                </p>
-              </div>
-              <div className="tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Enfold</span>
-                <span>WordPress</span>
-                <span>Design Responsivo</span>
-                <span>Hospedagem</span>
-                <span>Otimização de Performance</span>
-              </div>
-            </button>
+            ) : (
+              <button
+                type="button"
+                className="open-modal"
+                data-video="https://www.youtube.com/embed/Gbw46rMEsEo"
+              >
+                <img
+                  src="/assets/img/landing page vidraçaria.jpg"
+                  alt="Landing page Oficina do Vidro"
+                />
+                <div className="project-content">
+                  <h3>Oficina do Vidro</h3>
+                  <p>
+                    Criação de landing page para empresa de vidraçaria,
+                    destacando serviços, diferenciais e contato.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Enfold</span>
+                  <span>WordPress</span>
+                  <span>Design Responsivo</span>
+                  <span>Hospedagem</span>
+                  <span>Otimização de Performance</span>
+                </div>
+              </button>
+            )}
+          </div>
+          {/* 8 - Air Design Engenharia */}
+          <div
+            className={`project-card reveal${activeProject === projectNames[7] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[7]}
+          >
+            {activeProject === projectNames[7] ? (
+              <ProjectVideoLayout
+                videoId="OZvyznDrsvI"
+                title="Air Design Engenharia"
+                description="Site institucional desenvolvido do zero para a Air Design Engenharia Térmica, com nova identidade visual, páginas responsivas, conteúdo reorganizado e integração com WhatsApp. Também cuidei da migração, domínio/DNS, hospedagem, SEO e otimização de desempenho."
+                tags={[
+                  "WordPress",
+                  "Elementor",
+                  "Astra",
+                  "PHP",
+                  "HTML",
+                  "CSS",
+                  "JavaScript",
+                  "Design Responsivo",
+                  "Integração WhatsApp",
+                  "Migração e Hospedagem",
+                  "SEO",
+                  "DNS e cPanel",
+                ]}
+              />
+            ) : (
+              <button
+                type="button"
+                className="open-modal"
+                data-video="https://www.youtube.com/embed/OZvyznDrsvI"
+              >
+                <img
+                  src="https://img.youtube.com/vi/OZvyznDrsvI/hqdefault.jpg"
+                  alt="Prévia em vídeo do site Air Design Engenharia Térmica"
+                  loading="lazy"
+                />
+                <div className="project-content">
+                  <h3>Air Design Engenharia</h3>
+                  <p>
+                    Site institucional desenvolvido do zero para a Air Design
+                    Engenharia Térmica, com nova identidade visual, páginas
+                    responsivas, conteúdo reorganizado e integração com
+                    WhatsApp. Também cuidei da migração, domínio/DNS,
+                    hospedagem, SEO e otimização de desempenho.
+                  </p>
+                </div>
+                <div className="tags">
+                  <span>WordPress</span>
+                  <span>Elementor</span>
+                  <span>Astra</span>
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Design Responsivo</span>
+                  <span>Integração WhatsApp</span>
+                  <span>Migração e Hospedagem</span>
+                  <span>SEO</span>
+                  <span>DNS e cPanel</span>
+                </div>
+              </button>
+            )}
+          </div>
+          {/* 9 - Personalização de Loja Shopify */}
+          <div
+            className={`project-card reveal${activeProject === projectNames[8] ? " project-card-featured" : ""}`}
+            hidden={activeProject !== projectNames[8]}
+          >
+            <ProjectVideoLayout
+              videoId="i26ITCNCxXA"
+              title="Personalização de Loja Shopify"
+              description="Personalização de uma loja virtual na Shopify, explorando a estrutura e os recursos da plataforma para adaptar o tema com código às necessidades do projeto. O trabalho demonstra autonomia para investigar ferramentas novas e resolver desafios de desenvolvimento."
+              tags={[
+                "Shopify",
+                "E-commerce",
+                "Desenvolvimento Front-end",
+                "Personalização de temas",
+                "Customização com código",
+                "Desenvolvimento Web",
+                "Resolução de problemas",
+                "Aprendizado de novas tecnologias",
+              ]}
+            />
           </div>
         </div>
       </div>
