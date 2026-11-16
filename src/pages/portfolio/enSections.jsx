@@ -608,7 +608,7 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className={`project-card reveal${activeProject === project.title ? " project-card-featured" : ""}`}
+              className={`project-card reveal${activeProject === project.title ? " project-card-featured active" : ""}`}
               hidden={activeProject !== project.title}
             >
               {activeProject === project.title && (
